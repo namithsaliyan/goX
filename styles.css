@@ -1,0 +1,362 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333; /* Charcoal Gray */
+    margin: 0;
+    padding: 0;
+    background: url('OIG4.jpg') no-repeat center center fixed;
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+/* Header Styles */
+header {
+    color: #fff;
+    padding: 1rem 2rem;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Changed from fixed to relative */
+    text-align: center; /* Center align text in header */
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+    margin: 0;
+    color: #b71c1c; /* Dark Red */
+}
+
+/* Navigation Styles */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Align items vertically centered */
+    margin-top: 0.5rem;
+}
+
+nav ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    align-items: center; /* Center items vertically */
+}
+
+nav ul li {
+    margin: 0 0.75rem;
+}
+
+nav ul li a {
+    color: #b71c1c; /* Dark Red */
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    transition: background 0.3s, color 0.3s, transform 0.3s;
+}
+
+nav ul li a:hover {
+    background: #ff6f61; /* Light Coral */
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* Content Sections */
+section {
+    padding: 5rem 2rem;
+    margin-top: 1px; /* Adjust for header height */
+}
+
+/* Specific Styles for Sections */
+#home {
+    color: #fff;
+    text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('home-bg.jpg') no-repeat center center;
+    background-size: cover;
+    border-radius: 20px;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+#home h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: #ffd54f; /* Gold */
+    background: linear-gradient(90deg, #b71c1c, #ffd54f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textGlow 1.5s ease-in-out infinite;
+}
+
+@keyframes textGlow {
+    0% {
+        text-shadow: 0 0 5px rgba(255, 213, 0, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(255, 213, 0, 0.7);
+    }
+    100% {
+        text-shadow: 0 0 5px rgba(255, 213, 0, 0.5);
+    }
+}
+
+#home p {
+    font-size: 1.2rem;
+    margin-top: 0;
+}
+
+/* Gallery Styles */
+.gallery-wrapper {
+    margin: 2rem auto;
+    position: relative;
+    width: 100%;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s;
+}
+
+.gallery-item p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 0.5rem;
+    text-align: center;
+    transition: background 0.5s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-item:hover p {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* About Section */
+#about {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('about-bg.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 4rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin: 2rem auto;
+    max-width: 1200px;
+    width: 90%;
+    animation: fadeInUp 1s ease-out;
+    color: #fff; /* Set text color to white */
+}
+
+#about h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 700;
+    color: #b71c1c; /* Dark Red */
+}
+
+#about p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Services Section */
+#services {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('OIG4s.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 4rem 2rem;
+}
+
+#services h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 700;
+    color: #b71c1c; /* Dark Red */
+}
+
+#services ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+#services ul li {
+    background: #fff;
+    margin: 0.5rem 0;
+    padding: 1rem;
+    border-radius: 10px;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    font-weight: 500;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#services ul li:hover {
+    background: #ff6f61; /* Light Coral */
+    color: #fff;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Contact Section */
+#contact {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('OIG4s.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 4rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin: 2rem auto;
+    max-width: 600px;
+    width: 90%;
+    animation: fadeInUp 1s ease-out;
+}
+
+#contact h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 700;
+    color: #b71c1c; /* Dark Red */
+}
+
+#contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#contactForm label {
+    font-weight: 500;
+}
+
+#contactForm input, #contactForm textarea {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+#contactForm button {
+    background: #b71c1c; /* Dark Red */
+    color: #fff;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+#contactForm button:hover {
+    background: #ff6f61; /* Light Coral */
+    transform: scale(1.05);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    section {
+        padding: 2rem;
+    }
+
+    #home h2 {
+        font-size: 2rem;
+    }
+
+    #home p {
+        font-size: 1rem;
+    }
+
+    #about, #contact {
+        padding: 2rem;
+    }
+
+    #contactForm input, #contactForm textarea {
+        font-size: 0.9rem;
+    }
+
+    #contactForm button {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .gallery-item {
+        border-radius: 10px;
+    }
+}
