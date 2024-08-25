@@ -3,19 +3,19 @@ package main
 import (
     "encoding/json"
     "html/template"
-    "io/ioutil"
     "log"
     "net/http"
     "net/smtp"
+    "os"
     "strings"
 )
 
 // Configuration structure to hold SMTP settings
 type Config struct {
-    SMTPUser   string `json:"smtp_user"`
-    SMTPPass   string `json:"smtp_pass"`
-    AdminEmail string `json:"admin_email"`
-    CCEmails   string `json:"cc_emails"`
+    SMTPUser   string
+    SMTPPass   string
+    AdminEmail string
+    CCEmails   string
 }
 
 type Message struct {
@@ -32,14 +32,14 @@ const (
 
 var config Config
 
-// Function to load the configuration from the config.json file
-func loadConfig() error {
-    data, err := ioutil.ReadFile("config.json")
-    if err != nil {
-        return err
+// Function to initialize the configuration from environment variables
+func initConfig() {
+    config = Config{
+        SMTPUser:   os.Getenv("SMTP_USER"),
+        SMTPPass:   os.Getenv("SMTP_PASS"),
+        AdminEmail: os.Getenv("ADMIN_EMAIL"),
+        CCEmails:   os.Getenv("CC_EMAILS"),
     }
-    err = json.Unmarshal(data, &config)
-    return err
 }
 
 // Function to send an email using SMTP
@@ -152,9 +152,7 @@ func withCORS(next http.Handler) http.Handler {
 }
 
 func main() {
-    if err := loadConfig(); err != nil {
-        log.Fatalf("Failed to load configuration: %v", err)
-    }
+    initConfig()
 
     mux := http.NewServeMux()
     mux.HandleFunc("/submit", handleContactForm)
